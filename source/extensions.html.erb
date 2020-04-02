@@ -11,7 +11,7 @@ title: Extensions
   <img class="img-fluid" src="<%= image_path('illustrations/extensions.png') %>" srcset="<%= image_path('illustrations/extensions.png') %>, <%= image_path('illustrations/extensions@2x.png') %> 2x" alt="Extensions">
 </div>
 
-<div class="extensions-filter" data-aos="fade">
+<div class="extensions-filter">
   <div class="container">
     <h6 class="title">Show:</h6>
 
@@ -43,7 +43,7 @@ title: Extensions
 
 <% extensions = Solidus::Extension.from_yaml_data(data.extensions, environment: environment) %>
 
-<div class="extensions-list-block content-block content-block-gray-100" data-aos="fade">
+<div class="extensions-list-block content-block content-block-gray-100">
   <div class="container">
     <div class="alert alert-warning mb-0 d-none" role="alert">
       No extensions matching your criteria
@@ -72,7 +72,7 @@ title: Extensions
   </div>
 </div>
 
-<div class="content-block" data-aos="fade">
+<div class="content-block">
   <div class="container">
     <div class="row align-items-center">
       <div class="col-md">
