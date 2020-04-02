@@ -4,7 +4,6 @@ import "bootstrap";
 import "details-element-polyfill";
 import "slick-carousel";
 import Headroom from "headroom.js";
-import AOS from "aos";
 import LazyLoad from "vanilla-lazyload";
 const Cookies = require('js-cookie');
 
@@ -46,14 +45,6 @@ $(function () {
   // initialise
   headroom.init();
 
-  //Fade in blocks on scroll
-  AOS.init({
-    once: true,
-    offset: 200,
-    duration: 600,
-    easing: "ease-in-quart"
-  });
-
   //Remove top bar on click
   if (!Cookies.get('announcement')) {
     $(".top-bar").addClass('top-bar--show');
@@ -76,20 +67,4 @@ $(function () {
     slidesToShow: 1,
     fade: true
   });
-});
-
-$(document).on('aos:in', function(event) {
-  var target = $(event.originalEvent.detail);
-
-  if (target.data('start-counter') !== undefined) {
-    target.prop('Counter', 0).animate({
-      Counter: target.text()
-    }, {
-      duration: 2000,
-      easing: 'swing',
-      step: function (now) {
-        $(this).text(Math.ceil(now));
-      }
-    });
-  }
 });
