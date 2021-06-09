@@ -1,0 +1,55 @@
+automotive:
+  name: "Automotive"
+  icon: "automotive.svg"
+  description: "Create a fully customized shopping experience that keeps your customer front and center, while giving you full control over order management and fulfillment."
+  url: "industries/automotive"
+
+home_decor:
+  name: "Home Decor"
+  icon: "home-decor.svg"
+  description: "Appeal to your customers’ palate with a shopping experience designed around your brand’s unique needs — no limits, no compromises."
+  url: "industries/home-decor"
+
+apparel:
+  name: "Apparel"
+  icon: "apparel.svg"
+  description: "Give your customers a unique shopping experience that promotes your brand across all channels and all markets."
+  url: "industries/apparel"
+
+health_and_beauty:
+  name: "Health and Beauty"
+  icon: "health-and-beauty.svg"
+  description: "Create the shopping experience you’ve been craving with an eCommerce platform that gives you unparalleled flexibility."
+  url: "industries/health-and-beauty"
+
+online_store:
+  name: "Online Store"
+  icon: "home-decor.svg"
+  description: "Choose a limitless eCommerce platform. Create an integrated experience that has your brand's style all over it."
+  url: "use-cases/online-store"
+
+headless_commerce:
+  name: "Headless Commerce"
+  icon: "headless-commerce.svg"
+  description: "Use Solidus to power your store and leverage modern technologies to reach your customers in all places, on all devices."
+  url: "use-cases/headless-commerce"
+
+marketplace:
+  name: "Marketplace"
+  icon: "marketplace.svg"
+  description: "Your vendors define your brand. With Solidus, you can create an onboarding and management experience they won’t forget."
+  url: "use-cases/marketplace"
+
+global_commerce:
+  name: "Global Commerce"
+  icon: "global-commerce.svg"
+  description: "Establishing an international presence can be a challenge. Solidus allows you to sell to the world without diluting your brand."
+  url: "use-cases/global-commerce"
+
+food_beverage:
+  name: "Food and Beverage"
+  icon: "global-commerce.svg"
+  description: "Appeal to your customers’ palate with a shopping experience designed around your brand’s unique needs — no limits, no compromises."
+  url: "industries/food-and-beverage"
+
+

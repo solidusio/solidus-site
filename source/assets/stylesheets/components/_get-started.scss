@@ -1,0 +1,86 @@
+.get-started-hero {
+  h1 {
+    @include media-breakpoint-up(lg) {
+      font-size: $h1-font-size * 1.2;
+    }
+
+    span > span {
+      color: $blue;
+    }
+  }
+}
+
+.get-started-link {
+  font-weight: $font-weight-bolder;
+  font-size: $font-size-base;
+}
+
+.get-started__anchor-links {
+  background: $gray-900;
+  border-radius: 100px;
+
+  > a {
+    color: $white;
+    padding: $btn-padding-y $btn-padding-x;
+
+    &:last-child {
+      padding-left: 0;
+    
+      &::before {
+        content: ' | ';
+        display: inline-block;
+        padding-right: $btn-padding-x;
+        opacity: .5;
+      }
+    }
+  }
+}
+
+.get-started{
+  &__image {
+    margin-bottom: 30px;
+  }
+
+  &-services {
+    &__card {
+      cursor: pointer;
+      transition: all .3s ease-in-out;
+    
+      &__title {
+        margin-top: $spacer;
+
+        a {
+          color: $gray-900;
+          font-size: $font-size-sm;
+        }
+      }
+
+      &:hover {
+        h5 .isvg {
+          transform: translateX(5px);
+        }
+      }
+    }
+  }
+}
+
+.get-started-developers {
+  @include media-breakpoint-up(md) {
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='13' height='1632' viewBox='0 0 13 1632' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3crect x='6' width='1' height='1632' fill='url(%23paint0_linear)'/%3e%3ccircle cx='7' cy='128' r='5.5' fill='%23232831' stroke='%233C76F0'/%3e%3ccircle cx='7' cy='515' r='5.5' fill='%23232831' stroke='%233C76F0'/%3e%3ccircle cx='7' cy='938' r='5.5' fill='%23232831' stroke='%233C76F0'/%3e%3ccircle cx='6' cy='1368' r='5.5' fill='%23232831' stroke='%233C76F0'/%3e%3cdefs%3e%3clinearGradient id='paint0_linear' x1='6.5' y1='0' x2='6.5' y2='1632' gradientUnits='userSpaceOnUse'%3e%3cstop stop-color='%233C48F0' stop-opacity='0.05'/%3e%3cstop offset='0.489583' stop-color='%233C48F0'/%3e%3cstop offset='1' stop-color='%233C76F0' stop-opacity='0.05'/%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e ");
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  &__step {
+    margin-bottom: 50px;
+  
+    @include media-breakpoint-up(md) {
+      margin-bottom: 100px;
+    }
+  
+    img {
+      box-shadow: 0 -7px 30px 0 rgba(0, 0, 0, .24);
+      border-radius: 14px;
+    }
+  }
+}
