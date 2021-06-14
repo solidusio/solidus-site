@@ -21,16 +21,24 @@
 
   > a {
     color: $white;
-    padding: $btn-padding-y $btn-padding-x;
+    padding: $btn-padding-y ($btn-padding-x / 2) $btn-padding-y $btn-padding-x;
+
+    @include media-breakpoint-up(md) {
+      padding: $btn-padding-y 1.2em $btn-padding-y $btn-padding-x;
+    }
 
     &:last-child {
-      padding-left: 0;
-    
       &::before {
-        content: ' | ';
-        display: inline-block;
-        padding-right: $btn-padding-x;
+        content: '';
         opacity: .5;
+        height: 100%;
+        border-left: 1px solid $white;
+        float: left;
+        margin-left: -($btn-padding-x / 2);
+
+        @include media-breakpoint-up(md) {
+          margin-left: -1.2em;
+        }
       }
     }
   }
@@ -42,9 +50,20 @@
   }
 
   &-services {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: stretch;
+  
     &__card {
       cursor: pointer;
       transition: all .3s ease-in-out;
+      width: 100%;
+      min-height: 270px;
+    
+      @include media-breakpoint-down(xl) {
+        min-height: 300px;
+      }
     
       &__title {
         margin-top: $spacer;
