@@ -112,3 +112,45 @@
     }
   }
 }
+
+.get-started-faq {
+  background: $blue;
+  color: $white;
+
+  &__title,
+  .title > a,
+  .description > a {
+    color: $white;
+  }
+
+  .accordion-item {
+    border-bottom-color:rgba(255, 255, 255, .2);
+    &:first-child {
+      border-top: 0;
+    }
+
+    .title {
+      & > a {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-right: 5px;
+
+        &:not(.collapsed) .isvg {
+          transform: rotate(0deg);
+        }
+      }
+    
+      .isvg {
+        transform: rotate(45deg);
+        transition: transform .2s, opacity .2s;
+      }
+    }
+
+    .description {
+      a {
+        font-weight: $font-weight-bolder;
+      }
+    }
+  }
+}

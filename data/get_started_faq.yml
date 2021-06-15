@@ -1,0 +1,12 @@
+q-1:
+  question: "What is Solidus?"
+  answer: "Solidus is the free, open-source eCommerce framework for digitally-native brands, fast-growing online businesses and pragmatic developers."
+q-2:
+  question: "Is Solidus free?"
+  answer: "Yes! You can build, customize and scale your store with no limits or license fees."
+q-3:
+  question: "I already have an eCommerce. Can I migrate it to Solidus?"
+  answer: "You can migrate your store to Solidus any other platform (Spree, Shopify, Magento, etc...). Our partners can help you to do it and make the whole process smooth and pain-free. <a href='/partners'>Find a partner!</a>"
+q-4:
+  question: "Does exist an integration with PayPal?"
+  answer: "Yes, there's already an integration ready-to-use with PayPal. With its clean and flexible payments architecture, Solidus allows you to integrate other services. <a href='/integrations'>View all the Solidus available integrations</a>."
