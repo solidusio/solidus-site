@@ -56,8 +56,6 @@
     align-items: stretch;
   
     &__card {
-      cursor: pointer;
-      transition: all .3s ease-in-out;
       width: 100%;
       min-height: 270px;
     
@@ -67,16 +65,27 @@
     
       &__title {
         margin-top: $spacer;
+        transition: color .2s ease-in;
 
         a {
           color: $gray-900;
           font-size: $font-size-sm;
         }
+
+        .isvg {
+          transition: transform .2s ease-in;
+        }
       }
 
       &:hover {
-        h5 .isvg {
-          transform: translateX(5px);
+        a {
+          color: $blue;
+        }
+      
+        h5 {
+          .isvg {
+            transform: translateX(5px);
+          }
         }
       }
     }
