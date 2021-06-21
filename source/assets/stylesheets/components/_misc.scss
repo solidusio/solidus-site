@@ -93,7 +93,7 @@
 
     .infinite-slider & {
       transform: none;
-      width: 220px;
+      width: 100%;
       max-width: 100%;
       height: auto;
 
@@ -206,52 +206,62 @@
     overflow: hidden;
 
     &.community-logos {
+      backface-visibility: hidden;
+    
       &.row-1 {
         // 12 items
-        width: 220px * 12;
-        animation: infiniteScrollBrandsRow1 55s linear infinite none;
+        width: 100px * 12;
+        animation: infiniteScrollBrandsRow1 36s linear infinite;
+      
+        @include media-breakpoint-up(md) {
+          width: 200px * 12;
+        }
       }
   
       &.row-2 {
         // 14 items
-        animation: infiniteScrollBrandsRow2 45s linear infinite none;
-        width: 220px * 14;
+        width: 100px * 14;
+        animation: infiniteScrollBrandsRow2 28s linear infinite;
+      
+        @include media-breakpoint-up(md) {
+          width: 200px * 14;
+        }
       }
     }
 
-    &:hover {
-      animation-play-state: paused;
+    @include media-breakpoint-up(md) {
+      @media(hover: hover) and (pointer: fine) {
+        &:hover {
+          animation-play-state: paused !important;
+        }
+      }
     }
   }
 }
 
 @keyframes infiniteScrollBrandsRow1 {
   0% {
-    left: 0;
     opacity: 0;
-    transform: translateZ(0);
+    transform: translate3d(0, 0, 0);
   }
   1% {
     opacity: 1;
   }
   100% {
-    left: -((220px * 12) / 2);
-    transform: translateZ(0);
+    transform: translate3d(-((200px * 12) / 2.15), 0, 0);
   }
 }
 
 @keyframes infiniteScrollBrandsRow2 {
   0% {
-    left: 0;
     opacity: 0;
-    transform: translateZ(0);
+    transform: translate3d(0, 0, 0);
   }
   1% {
     opacity: 1;
   }
   100% {
-    left:  -((220px * 14) / 2);
-    transform: translateZ(0);
+    transform: translate3d(-((200px * 14) / 2), 0, 0);
   }
 }
 
