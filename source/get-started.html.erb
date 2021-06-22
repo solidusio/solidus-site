@@ -99,45 +99,51 @@ description: Solidus is an open source ecommerce solution built with Ruby on Rai
 </div>
 
 <div class="content-block content-block-gray-100">
-  <div class="container container-md text-center">
+  <div class="container text-center mb-4 mb-lg-8">
     <h2>See what Solidus can do for you</h2>
-    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore</p>
+    <p class="lead container-md mx-auto">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore</p>
   </div>
-  <div class="content-block">
-    <div class="container-fluid px-0">
-      <div class="get-started-services centered-carousel row-1">
-        <% data.get_started_services.values.select { |service| service }.take(4).each do |service| %>
-          <div class="px-1 px-md-2 pt-2 pb-2">
-            <div class="get-started-services__card card">
-              <div class="card-body">
-                <%= inline_svg("icons/#{service.icon}", class: "isvg group") %>
-                <h5 class="get-started-services__card__title">
-                  <a href="/<%= service.url %>">
-                    <%= service.name %> <%= inline_svg("icons/arrow-right.svg", class: "isvg") %>
-                  </a>
-                </h5>
-                <p><%= service.description %></p>
+  <div class="pt-2">
+    <div class="container px-0 infinite-slider">
+      <div class="horizontal-scroll">
+        <div class="get-started-services infinite-slider__track row-1">
+          <% data.get_started_services.values.select { |service| service }.take(4).each do |service| %>
+            <div class="px-1 px-md-2 pt-2 pb-2 card-wrapper">
+              <div class="get-started-services__card card js-fully-clickable">
+                <div class="card-body">
+                  <%= inline_svg("icons/#{service.icon}", class: "isvg group") %>
+                  <h5 class="get-started-services__card__title">
+                    <a href="/<%= service.url %>">
+                      <%= service.name %> <%= inline_svg("icons/arrow-right.svg", class: "isvg") %>
+                    </a>
+                  </h5>
+                  <p><%= service.description %></p>
+                </div>
               </div>
             </div>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
       </div>
-      <div class="get-started-services mt-4 centered-carousel row-2">
-        <% data.get_started_services.values.select { |service| service }.drop(4).each do |service| %>
-          <div class="px-1 px-md-2 pt-2 pb-2">
-            <div class="get-started-services__card card">
-              <div class="card-body">
-                <%= inline_svg("icons/#{service.icon}", class: "isvg group") %>
-                <h5 class="get-started-services__card__title">
-                  <a href="/<%= service.url %>">
-                    <%= service.name %> <%= inline_svg("icons/arrow-right.svg", class: "isvg") %>
-                  </a>
-                </h5>
-                <p><%= service.description %></p>
+    </div>
+    <div class="container px-0 infinite-slider">
+      <div class="horizontal-scroll">
+        <div class="get-started-services infinite-slider__track row-2">
+          <% data.get_started_services.values.select { |service| service }.drop(4).each do |service| %>
+            <div class="px-1 px-md-2 pt-2 pb-2 card-wrapper">
+              <div class="get-started-services__card card js-fully-clickable">
+                <div class="card-body">
+                  <%= inline_svg("icons/#{service.icon}", class: "isvg group") %>
+                  <h5 class="get-started-services__card__title">
+                    <a href="/<%= service.url %>">
+                      <%= service.name %> <%= inline_svg("icons/arrow-right.svg", class: "isvg") %>
+                    </a>
+                  </h5>
+                  <p><%= service.description %></p>
+                </div>
               </div>
             </div>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>

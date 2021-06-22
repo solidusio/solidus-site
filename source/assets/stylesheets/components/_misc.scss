@@ -152,13 +152,14 @@
   }
 }
 
-// Community logos animation
+// Community logos and Get Started services animation
 
 .infinite-slider {
   overflow-y: hidden;
   overflow-x: hidden;
   max-width: 100%;
   margin: 0 auto;
+  position: relative;
 
   @include media-breakpoint-up(xl) {
     max-width: 1440px;
@@ -184,17 +185,30 @@
     right: 0;
   }
 
+  .horizontal-scroll {
+    overflow-y: hidden;
+    overflow-x: scroll;
+  
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
   &__track {
     display: flex;
     align-items: center;
     position: relative;
     flex-wrap: nowrap;
     flex-direction: row;
-    white-space: nowrap;
     overflow: hidden;
 
+    //Home page
     &.community-logos {
       backface-visibility: hidden;
+      white-space: nowrap;
     
       &.row-1 {
         // 12 items
@@ -213,6 +227,29 @@
       
         @include media-breakpoint-up(md) {
           width: 200px * 14;
+        }
+      }
+    }
+
+    // Get Started
+    &.get-started-services {
+      backface-visibility: hidden;
+    
+      &.row-1 {
+        width: 366px * 4;
+        animation: infiniteScrollServicesRow1 40s linear infinite;
+
+        @include media-breakpoint-up(md) {
+          width: 452px * 4;
+        }
+      }
+  
+      &.row-2 {
+        width: 366px * 5;
+        animation: infiniteScrollServicesRow2 30s linear infinite;
+      
+        @include media-breakpoint-up(md) {
+          width: 452px * 5;
         }
       }
     }
@@ -250,6 +287,32 @@
   }
   100% {
     transform: translate3d(-((200px * 14) / 2), 0, 0);
+  }
+}
+
+@keyframes infiniteScrollServicesRow1 {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 0, 0);
+  }
+  1% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(-((440px * 4) / 2.15), 0, 0);
+  }
+}
+
+@keyframes infiniteScrollServicesRow2 {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 0, 0);
+  }
+  1% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(-((440px * 5) / 2), 0, 0);
   }
 }
 

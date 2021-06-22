@@ -58,9 +58,17 @@
     &__card {
       width: 100%;
       min-height: 270px;
+      min-width: 350px;
+      cursor: pointer;
+      box-shadow: 0 0 10px 0 rgba(0, 0, 0, .05);
+      border-color: transparent;
     
       @include media-breakpoint-down(xl) {
         min-height: 300px;
+      }
+
+      @include media-breakpoint-up(md) {
+        min-width: 420px;
       }
     
       &__title {
