@@ -1,0 +1,18 @@
+<ul class="accordion list-unstyled" id="get-started-faq">
+  <% data.get_started_faq.each.with_index do |(faqs, faq), i| %>
+    <li class="accordion-item">
+      <h4 class="title">
+        <a class="collapsed" data-toggle="collapse" data-target="#faq<%= i %>" href="#">
+          <%= faq.question %>
+          <%= inline_svg("icons/close.svg", class: "isvg") %>
+        </a>
+      </h4>
+
+      <div id="faq<%= i %>" class="collapse" aria-labelledby="faq<%= i %>" data-parent="#get-started-faq">
+        <div class="card-body px-0">
+          <p class="description"><%= faq.answer %></p>
+        </div>
+      </div>
+    </li>
+  <% end %>
+</ul>
