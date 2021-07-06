@@ -1,0 +1,39 @@
+developers:
+  tile-1:
+    name: "Revamped Guides"
+    description: "We are rewriting our developer guides from scratch: the new guides are designed for introducing new developers to the Solidus ecosystem through a more linear explanation of the Solidus architecture and best practice recommendations, but they will also serve as a reference for experienced Solidus developers. You can see a preview <a href='https://edgeguides.solidus.io/' target='_blank'>here</a>!"
+    default_uncollapsed: true
+  tile-2:
+    name: "Smoother Upgrades"
+    description: "Stability has always been one of our core tenets in the Solidus ecosystem, and we feel like we've done a pretty good job so far. This year, we want to do even better, by providing documentation and tooling that allow you to upgrade Solidus in a matter of minutes, not hours."
+    default_uncollapsed: true
+  tile-3:
+    name: "Event-Driven Customization"
+    description: "Solidus already shines for its ease of customization, but we want to take it up one notch. We’re one of the first eCommerce solutions to experiment with an event-driven architecture. This year, we want to turn the event bus into the go-to choice for customizing Solidus by providing more events in the core and extensions, as well as dev tools for working with the event bus."
+    default_uncollapsed: true
+  tile-4:
+    name: "Service Object Architecture"
+    description: "In addition to improving our event-driven architecture, we also want to make sure it's easier than ever to replace Solidus' business logic with your own. Be on the lookout for a better, more streamlined, more consistent service object architecture across the entire Solidus ecosystem."
+  tile-5:
+    name: "Admin Customization API"
+    description: "Overriding the admin panel reliably across multiple Solidus versions can be a lot of work. We're working on developing an SDK that will abstract generic admin concepts, so that you can focus on building the business logic, while Solidus handles generating the right UI for your users. This should be make it a breeze to build new admin UIs for your store!"
+
+operators:
+  tile-1:
+    name: "Modern Frontend"
+    description: "We have published a new storefront starter kit that uses some more modern practices to build a storefront. We have a lot of ideas about how to further improve it but the next step is designing a  smooth installation process that plays well with the ecosystem."
+    default_uncollapsed: true
+  tile-2:
+    name: "Stripe v.2"
+    description: "Description."
+    default_uncollapsed: true
+  tile-3:
+    name: "OmniChannel Support"
+    description: "SolidusFeeds extensions provides a nice and flexible way to distribute product feeds to platforms like Google Shopping, Facebook and Instagram. Next on our list of supported channels is Amazon Marketplace."
+    default_uncollapsed: true
+  tile-4:
+    name: "Global Commerce"
+    description: "We will finalize multi currency support, with a ready-to-use, yet extendable implementation of the currency switcher in the frontend.  We also want to improve the ability of translating data stored in the database with a new approach."
+  tile-5:
+    name: "Marketplace"
+    description: "Description."

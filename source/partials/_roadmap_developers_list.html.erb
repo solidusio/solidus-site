@@ -1,0 +1,8 @@
+<div class="roadmap-use-case__wrapper">
+  <% data.roadmap[:developers].each do |tile, info| %>
+    <div class="roadmap-use-case__timeline roadmap-use-case__timeline--toggleable <%= "uncollapsed" if info[:default_uncollapsed] %>">
+      <h5><%= info[:name] %></h5>
+      <p><%= info[:description] %></p>
+    </div>
+  <% end %>
+</div>

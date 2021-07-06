@@ -6,12 +6,12 @@
     background: url("/assets/images/illustrations/roadmap-hero-sm.svg") no-repeat;
     background-size: 75% auto;
     background-position: center;
-    height: 600px;
+    height: 400px;
     padding: ($spacer * 6) 0 ($spacer * 3);
 
     @include media-breakpoint-up(sm) {
       flex-direction: row;
-      justify-content: space-between;
+      justify-content: center;
       background: url("/assets/images/illustrations/roadmap-hero.svg") no-repeat;
       background-size: 100% auto;
       background-position: center top;
@@ -29,6 +29,7 @@
     @include media-breakpoint-up(sm) {
       align-self: flex-end;
       margin-bottom: 0;
+      padding: 0 $spacer;
 
       &:nth-of-type(2){
         margin-bottom: $spacer * 3;
@@ -129,121 +130,93 @@
     }
   }
 
+  &__wrapper {
+    border-left: 1px solid;
+    border-image: linear-gradient(to bottom, rgba(36,40,48,0), rgba(36,40,48,1), rgba(36,40,48,0)) 1 100%;
+    padding: 0 0 0 30px;
+  }
+
   &__timeline {
     position: relative;
-    padding-bottom: 30px;
-    padding-left: 40px;
-    margin-left: 22px;
-    border-left: 2px solid $gray-200;
-
-    &:last-child {
-      padding-bottom: 0;
-    }
+    padding: 15px 20px;
+    margin: 10px 0;
+    border-radius: 4px;
+    transition: background .3s linear, box-shadow .3s linear;
+    cursor: pointer;
 
     &:before {
       content: '';
       position: absolute;
-      top: 0;
-      left: -22px;
+      top: 15px + 5px;
+      left: -(30px + (14px / 2));
       display: block;
-      width: 45px;
-      height: 45px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50px;
+      border: 1px solid #505359;
+      background: $gray-100;
+      transition: all .8s ease;
     }
 
-    &:after {
-      content: '';
-      display: block;
-      width: 100%;
-      height: 1px;
-      margin-top: 30px;
-      background: $gray-200;
+    &:hover {
+      background: #F1F5FE;
+
+      h5::after {
+        background-color: $white;
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M7 0H5V5H0V7H5V12H7V7H12V5H7V0Z' fill='%233C76F0'/%3e%3c/svg%3e");
+      }
     }
 
-    h6 {
-      margin-bottom: 10px;
+    h5 {
+      margin-bottom: 0;
+      position: relative;
+      padding-right: 35px;
+
+      &::after {
+        content: '';
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        top: -5px;
+        right: 0;
+        background-color: #F0F0F0;
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M7 0H5V5H0V7H5V12H7V7H12V5H7V0Z' fill='%23CBCBCB'/%3e%3c/svg%3e");
+        background-repeat: no-repeat;
+        background-position: center;
+        border-radius: 50px;
+        border: 1px solid #EDEDED;
+        transition: all .05s linear;
+      }
     }
 
     p {
+      display: none;
+      width: auto !important;
+      margin-top: 15px;
       font-size: $font-size-xs;
+      transition: display .3s linear, width .3s linear;
     }
 
-    &--done {
-      &:before {
-        background: url("/assets/images/icons/done.svg") no-repeat;
+    &.uncollapsed {
+      background: $white;
+      box-shadow: 0 0 4px 4px rgba(0,0,0, .03);
+      transition: background .3s linear, box-shadow .3s linear;
+
+      &::before {
+        background: $blue;
+        border-color: $white;
+        box-shadow: 0 0 0 10px rgba(60,118,240, .08);
       }
-
-      h6 {
-        color: #19CCA3;
+    
+      h5::after {
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='12' height='2' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M0 0v2h12V0z' fill='%233C76F0' fill-rule='evenodd'/%3e%3c/svg%3e");
+        background-color: $white;
       }
-    }
-
-    &--currently {
-      &:before {
-        background: url("/assets/images/icons/thumb.svg") no-repeat;
-      }
-
-      h6 {
-        color: #6391F3;
-      }
-    }
-
-    &--soon {
-      &:before {
-        background: url("/assets/images/icons/watch.svg") no-repeat;
-      }
-
-      h6 {
-        color: #E69138;
-      }
-    }
-
-    &--long-term {
-      &:before {
-        background: url("/assets/images/icons/light_bulb.svg") no-repeat;
-      }
-
-      h6 {
-        color: #979797;
-      }
-    }
-
-    &--toggleable {
-      cursor: pointer;
-
-      h6 {
-        position: relative;
-        padding-right: 44px;
-        @include media-breakpoint-down(sm) {
-            min-height: 44px + 10px;
-            padding-top: 11px;
-        }
-
-        &:after {
-          content: '';
-          width: 44px;
-          height: 44px;
-          position: absolute;
-          top: 0;
-          right: 0;
-          background-color: $white;
-          background: url("/assets/images/icons/cross.svg") no-repeat;
-          background-position: center;
-          border-radius: 50px;
-          box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-          transition: all 130ms ease;
-        }
-      }
-
+    
       p {
-        display: none;
-        width: auto !important;
-      }
-
-      &.uncollapsed {
-        h6::after {
-          background: url("/assets/images/icons/minus.svg") no-repeat;
-          background-position: center;
-        }
+        display: block;
+        height: auto;
+        transition: display .3s linear, width .3s linear;
       }
     }
   }
