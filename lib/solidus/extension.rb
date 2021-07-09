@@ -1,6 +1,6 @@
 module Solidus
   class Extension
-    attr_accessor :repo, :title, :ci_provider, :description, :group, :environment
+    attr_accessor :repo, :title, :ci_provider, :description, :group, :environment, :most_popular
 
     class << self
       def from_yaml_data(data, environment:)
@@ -38,14 +38,14 @@ module Solidus
     def categories
       case repo_org.to_s
       when 'solidusio'
-        ['Official']
+        ['Certified']
       when 'solidusio-contrib'
         ['Community']
       else
         ['Third-Party']
       end
     end
-
+  
     def ci
       ci_klass.new(self)
     end

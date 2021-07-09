@@ -3,6 +3,7 @@
   padding: 20px 0;
   top: 0;
   border-bottom: 1px solid $gray-200;
+  position: relative;
 
   @include media-breakpoint-down(sm) {
     padding: 15px 0;

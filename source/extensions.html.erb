@@ -3,88 +3,54 @@ title: Extensions
 description: Solidus provides a lot of free extensions. Fine-tune your store’s capabilities!
 ---
 
-<div class="content-block-title text-center">
-  <div class="container container-md">
+<div class="extensions-hero hero-block content-block">
+  <div class="container">
     <h1 class="title">Extensions for days.</h1>
     <p class="lead">Fine-tune your store’s capabilities with free extensions for Solidus.</p>
+    <a href="https://github.com/solidusio/solidus_dev_support" target="_blank" class="btn btn-primary">Build your own</a>
   </div>
 </div>
 
-<div class="extensions-filter">
-  <div class="container">
-    <h6 class="title">Show:</h6>
 
-    <div class="form-check form-check-custom">
-      <input type="checkbox" class="form-check-input" id="filter-official" name="official" checked>
-      <label class="form-check-label" for="filter-official">
-        <%= inline_svg("icons/checkbox.svg", class: "isvg") %>
-        Official
-      </label>
-    </div>
+<div class="extensions-filter p-0">
+  <div class="container-fluid extensions-filter__navbar d-flex justify-content-center">
 
-    <div class="form-check form-check-custom">
-      <input type="checkbox" class="form-check-input" id="filter-community" name="community" checked>
-      <label class="form-check-label" for="filter-community">
-        <%= inline_svg("icons/checkbox.svg", class: "isvg") %>
-        Community
-      </label>
-    </div>
+  <input type="checkbox" class="form-check-input show-all__mobile show-all__mobile__input" id="show-all" name="Show all">
+  <label class="show-all__mobile show-all__mobile__label" for="show-all"></label>
 
-    <div class="form-check form-check-custom">
-      <input type="checkbox" class="form-check-input" id="filter-third-party" name="third-party" checked>
-      <label class="form-check-label" for="filter-third-party">
-        <%= inline_svg("icons/checkbox.svg", class: "isvg") %>
-        Third-Party
-      </label>
-    </div>
+    <ul class="extensions-filter__navbar__nav nav align-items-center">
+      <% extensions = Solidus::Extension.from_yaml_data(data.extensions, environment: environment) %>
+
+      <% group_extensions(extensions).each_pair.with_index do |(group_name, group_extensions), i| %>
+        <li class="nav-item" data-filter="<%= group_name.underscore.gsub('_', '-') %>">
+          <div class="form-check-custom pl-0">
+            <input type="checkbox" class="form-check-input extensions-filter__input" id="filter-<%= group_name.underscore.gsub(' ', '-') %>" name="<%= group_name.underscore.gsub(' ', '-') %>">
+            <label class="btn btn-sm extensions-filter__label" for="filter-<%= group_name.underscore.gsub(' ', '-') %>">
+              <%= group_name %>
+            </label>
+          </div>
+        </li>
+      <% end %>
+      <button class="js-more btn btn-sm extensions-filter__more">More</button>
+    </ul>
   </div>
 </div>
-
-<% extensions = Solidus::Extension.from_yaml_data(data.extensions, environment: environment) %>
 
 <div class="extensions-list-block content-block content-block-gray-100">
-  <div class="container">
-    <div class="alert alert-warning mb-0 d-none" role="alert">
-      No extensions matching your criteria
-    </div>
+  <div class="extensions-list-block__container container container-xl">
 
-    <div class="accordion" id="accordion">
-      <% group_extensions(extensions).each_pair.with_index do |(group_name, group_extensions), i| %>
-        <div class="extensions-group accordion-item" id="extensions-group-<%= group_name.underscore.gsub('_', '-') %>">
-          <h3 class="title">
-            <a class="collapsed" href="#" data-toggle="collapse" data-target="#collapse<%= i %>">
-              <%= group_name %>
-              <%= inline_svg("icons/arrow-down.svg", class: "isvg isvg-arrow") %>
-            </a>
-          </h3>
-
-          <div id="collapse<%= i %>" class="content collapse" data-parent="#accordion">
-            <div class="extensions">
-              <% group_extensions.sort_by(&:title).each do |extension| %>
-                <%= partial 'partials/extension', locals: { extension: extension } %>
-              <% end %>
-            </div>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  </div>
-</div>
-
-<div class="content-block">
-  <div class="container">
-    <div class="row align-items-center">
-      <div class="col-md">
-        <div class="block-content mb-md-0">
-          <h2 class="title">Build an extension.</h2>
-          <p>Don’t see the functionality you need? Create your own extension and share it with the community so everyone can benefit from your expertise!</p>
-          <a class="btn btn-primary" href="https://github.com/solidusio/solidus_dev_support" target="_blank">Get Coding!</a>
+    <% group_extensions(extensions).each_pair.with_index do |(group_name, group_extensions), i| %>
+      <div class="extensions-group <%= group_name.underscore.gsub(' ', '-') %> " id="extensions-group-<%= group_name.underscore.gsub(' ', '-') %>">
+        <h3 class="title">
+          <%= group_name %>
+        </h3>
+        <div class="extensions">
+          <% group_extensions.sort_by(&:title).each do |extension| %>
+            <%= partial 'partials/extension', locals: { extension: extension } %>
+          <% end %>
         </div>
       </div>
-      <div class="col-md text-center text-md-right mt-6 mt-md-0">
-        <img class="img-fluid" src="<%= image_path('illustrations/build-extensions.svg') %>" alt="Edit Product">
-      </div>
-    </div>
+    <% end %>
   </div>
 </div>
 

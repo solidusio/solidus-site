@@ -1,15 +1,22 @@
 <% versions = Solidus::Version.collection_from_yaml_data(data.versions).select(&:supported?).map(&:number).reverse.push('master') %>
 
-<div class="extension-info card card-border-none <%= extension.categories.map { |c| "e-#{c.underscore.gsub('_', '-')}" }.join(' ') %>">
+<div class="extension-info card card-border-none e-<%= extension.group.underscore.gsub(' ', '-') %> <%= extension.categories.map { |c| "collection-#{c.underscore.gsub('_', '-')}" }.join(' ') %>">
   <div class="card-body">
+  <ul class="list-inline">
+    <% extension.categories.each do |category| %>
+      <li class="list-inline-item">
+          <span class="extension-info__badge <%= "certified" if category == 'Certified' %>"><%= category %></span>
+      </li>
+    <% end %>
+    <li class="list-inline-item">
+      <span class="extension-info__badge group-name"><%= extension.group %></span>
+    </li>
+  </ul>
+
     <h4 class="title">
       <a href="<%= extension.repo_url %>" target="_blank">
         <%= extension.title %>
       </a>
-
-      <% extension.categories.each do |category| %>
-        <span class="category"><%= category %></span>
-      <% end %>
     </h4>
 
     <div>
@@ -26,14 +33,14 @@
       <% end %>
     </div>
 
-    <div class="extension-meta">
+    <div class="extension-meta align-items-center">
       <div class="extension-org">
-        <img class="extension-org-logo" src="<%= extension.repo_org_image_url %>">
-        <small class="text-muted"><%= extension.repo_org %></small>
+        <img class="extension-org-logo rounded-circle" src="<%= extension.repo_org_image_url %>">
+        <span><%= extension.repo_org %></span>
       </div>
 
       <div class="extension-gh">
-        <a class="link" href="<%= extension.repo_url %>" target="_blank">Get it on GitHub</a>
+        <a class="btn btn-secondary btn-white" href="<%= extension.repo_url %>" target="_blank">Get it</a>
       </div>
     </div>
   </div>

@@ -1,10 +1,7 @@
-import AOS from "aos";
-
 $(function () {
-  let $filter = $(".extensions-filter input"),
+  let $filter = $(".extensions-filter__input"),
       $groups = $(".extensions-group"),
-      $cards = $(".extensions-list-block .extension-info"),
-      $alert = $(".extensions-list-block .alert"),
+      $cards = $(".extensions-list-block .extensions-group .extension-info"),
       selectedFilters = [];
 
 
@@ -23,8 +20,19 @@ $(function () {
       $(this).toggleClass("empty", ($(this).find(".extension-info:not(.deselected)").length === 0));
     });
 
-    $alert.toggleClass("d-none", ($groups.filter(":not(.empty)").length > 0));
+    if($filter.filter(':checked').length === 0) {
+      console.log ("uncheked");
+      $groups.toggleClass("empty");
+      $cards.toggleClass("deselected");
+    }
+  });
 
-    AOS.refresh();
-  })
+
+
+  var $hiddenGroups = $( ".extensions-filter__navbar__nav .nav-item:nth-last-of-type(-n+7)");
+    
+  $(".js-more").click(function() {
+    $hiddenGroups.addClass("show");
+    $(this).hide();
+  });
 });
